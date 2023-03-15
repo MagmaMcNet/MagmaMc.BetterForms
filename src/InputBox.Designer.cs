@@ -38,7 +38,7 @@ namespace MagmaMc.BetterForms
             this.Exit = new System.Windows.Forms.Label();
             this.Titlebar_Text = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.betterButtons1 = new MagmaMc.BetterForms.BetterButtons();
+            this.betterButtons1 = new MagmaMc.BetterForms.BetterButton();
             this.MainText = new System.Windows.Forms.Label();
             this.OkButton = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
@@ -201,7 +201,7 @@ namespace MagmaMc.BetterForms
 
         #endregion
 
-        private MagmaMc.BetterForms.BetterButtons betterButtons1;
+        private MagmaMc.BetterForms.BetterButton betterButtons1;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Panel Titlebar;
         private System.Windows.Forms.Label Exit;

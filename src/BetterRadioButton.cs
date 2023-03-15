@@ -100,13 +100,5 @@ namespace MagmaMc.BetterForms
                     rbBorderSize + 8, (Height - TextRenderer.MeasureText(Text, Font).Height) / 2);//Y=Center
             }
         }
-
-        //X-> Obsolete code, this was replaced by the Padding property in the constructor
-        //(this.Padding = new Padding(10,0,0,0);)
-        //protected override void OnResize(EventArgs e)
-        //{
-        //    base.OnResize(e);
-        //    this.Width = TextRenderer.MeasureText(this.Text, this.Font).Width + 30;
-        //}
     }
 }
