@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net462;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <Title>$(AssemblyName)</Title>
+    <Company>MagmaMc</Company>
+
+    <Version>0.2.0</Version>
+    <AssemblyVersion>0.2.0.0</AssemblyVersion>
+    <Copyright>Copyright 2021-2023 © - All Rights Reserved</Copyright>
+    <PackageIcon>BetterForms.png</PackageIcon>
+    <PackageReleaseNotes>
+      Added InputBox,
+      Updated Existing Controls
+      
+    </PackageReleaseNotes>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Windows.Forms" Version="4.0.0.0" Condition="'$(TargetFramework)' == 'net462'" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="BetterForms.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+</Project>
