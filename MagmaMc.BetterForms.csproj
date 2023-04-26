@@ -21,7 +21,11 @@
       
     </PackageReleaseNotes>
     
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
+    <!-- WinExe - Form Testing
+         Exe - Console Testing
+         Library - Production
+         -->
     
     <PackageReadmeFile>README.md</PackageReadmeFile>
     
@@ -31,7 +35,6 @@
     
     <IncludeSymbols>True</IncludeSymbols>
     
-    <StartupObject>MagmaMc.BetterForms.src.Test</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
