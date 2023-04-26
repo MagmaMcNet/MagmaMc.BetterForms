@@ -1,89 +1,72 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace MagmaMc.BetterForms
 {
-
-    public class GIFPlayer : UserControl
+    public class GIFPlayer: PictureBox
     {
-        public bool IsStart { get; private set; } = false;
-
-        private readonly IContainer components = null;
-
-        private PictureBox PB;
-
-        [Description("Load Image .gif in the object")]
-        [Category("Appearance")]
-        public Image GIF
-        {
-            get
-            {
-                return PB.Image;
-            }
-            set
-            {
-                PB.Image = value;
-            }
-        }
+        private bool isStart = false;
+        private BackgroundWorker backgroundWorker;
 
         public GIFPlayer()
         {
             InitializeComponent();
-        }
-
-        public void Start()
-        {
-            IsStart = true;
-            Visible = true;
-            BackgroundWorker backgroundWorker = new BackgroundWorker();
+            backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += Loading;
-            backgroundWorker.RunWorkerAsync();
-        }
-
-        public void Stop()
-        {
-            IsStart = false;
-            Visible = false;
         }
 
         private void Loading(object sender, DoWorkEventArgs e)
         {
-            while (IsStart)
+            while (isStart)
             {
                 Refresh();
             }
         }
 
-        protected override void Dispose(bool disposing)
+        [Description("Load Image .gif in the object")]
+        [Category("Appearance")]
+        [DisplayName("GIF")]
+        public new Image Image
         {
-            if (disposing && components != null)
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
+            get => base.Image;
+            set => base.Image = value;
+        }
+
+        public void Start()
+        {
+            isStart = true;
+            Visible = true;
+            backgroundWorker.RunWorkerAsync();
+        }
+
+        public void Stop()
+        {
+            isStart = false;
+            Visible = false;
         }
 
         private void InitializeComponent()
         {
-            PB = new PictureBox();
-            ((ISupportInitialize)PB).BeginInit();
-            SuspendLayout();
-            PB.BackColor = Color.Transparent;
-            PB.Dock = DockStyle.Fill;
-            PB.Location = new Point(0, 0);
-            PB.Name = "PB";
-            PB.Size = new Size(128, 128);
-            PB.SizeMode = PictureBoxSizeMode.StretchImage;
-            PB.TabIndex = 13;
-            PB.TabStop = false;
-            AutoScaleDimensions = new SizeF(6f, 13f);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(PB);
-            Name = "GIFImage";
-            Size = new Size(128, 128);
-            ((ISupportInitialize)PB).EndInit();
-            ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // GIFPlayer
+            // 
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Location = new System.Drawing.Point(0, 0);
+            this.Name = "GIFPlayer";
+            this.Size = new System.Drawing.Size(150, 150);
+            this.SizeMode = SizeMode;
+            this.TabIndex = 0;
+            this.TabStop = false;
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+            this.ResumeLayout(false);
+
         }
+
     }
+
 }

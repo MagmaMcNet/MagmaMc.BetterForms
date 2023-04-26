@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace MagmaMc.BetterForms
 {
-    public class BetterButtons : Button
+    public class BetterButton : Button
     {
         /// <summary>
         /// Custom Value For Use
@@ -66,7 +66,7 @@ namespace MagmaMc.BetterForms
         }
 
         //Constructor
-        public BetterButtons()
+        public BetterButton()
         {
             FlatStyle = FlatStyle.Flat;
             FlatAppearance.BorderSize = 0;
@@ -91,9 +91,9 @@ namespace MagmaMc.BetterForms
             return path;
         }
 
-        protected override void OnPaint(PaintEventArgs pevent)
+        protected override void OnPaint(PaintEventArgs @event)
         {
-            base.OnPaint(pevent);
+            base.OnPaint(@event);
 
 
             Rectangle rectSurface = ClientRectangle;
@@ -109,21 +109,20 @@ namespace MagmaMc.BetterForms
                 using (Pen penSurface = new Pen(Parent.BackColor, smoothSize))
                 using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
-                    pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    @event.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     //Button surface
                     Region = new Region(pathSurface);
                     //Draw surface border for HD result
-                    pevent.Graphics.DrawPath(penSurface, pathSurface);
+                    @event.Graphics.DrawPath(penSurface, pathSurface);
 
                     //Button border                    
                     if (borderSize >= 1)
-                        //Draw control border
-                        pevent.Graphics.DrawPath(penBorder, pathBorder);
+                        @event.Graphics.DrawPath(penBorder, pathBorder);
                 }
             }
             else //Normal button
             {
-                pevent.Graphics.SmoothingMode = SmoothingMode.None;
+                @event.Graphics.SmoothingMode = SmoothingMode.None;
                 //Button surface
                 Region = new Region(rectSurface);
                 //Button border
@@ -132,7 +131,7 @@ namespace MagmaMc.BetterForms
                     using (Pen penBorder = new Pen(borderColor, borderSize))
                     {
                         penBorder.Alignment = PenAlignment.Inset;
-                        pevent.Graphics.DrawRectangle(penBorder, 0, 0, Width - 1, Height - 1);
+                        @event.Graphics.DrawRectangle(penBorder, 0, 0, Width - 1, Height - 1);
                     }
                 }
             }
