@@ -9,15 +9,12 @@
     <Title>$(AssemblyName)</Title>
     <Company>MagmaMc</Company>
 
-    <Version>0.3.0</Version>
-    <AssemblyVersion>0.3.0.0</AssemblyVersion>
+    <Version>0.3.1</Version>
+    <AssemblyVersion>0.3.1.0</AssemblyVersion>
     <Copyright>Copyright 2021-2023 © - All Rights Reserved</Copyright>
     <PackageIcon>BetterForms.png</PackageIcon>
     <PackageReleaseNotes>
-      Updated GIFPlayer,
-      Updated BetterButton,
-      
-      Added RoundPicture
+      Added BetterPanel
       
     </PackageReleaseNotes>
     
@@ -28,11 +25,8 @@
          -->
     
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    
     <PackageTags>Windows.Forms, Forms, Better</PackageTags>
-    
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    
     <IncludeSymbols>True</IncludeSymbols>
     
   </PropertyGroup>
