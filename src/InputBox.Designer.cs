@@ -38,7 +38,7 @@ namespace MagmaMc.BetterForms
             this.Exit = new System.Windows.Forms.Label();
             this.Titlebar_Text = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.betterButtons1 = new MagmaMc.BetterForms.BetterButton();
+            this.betterButtons1 = new MagmaMc.BetterForms.RoundedPictureBox();
             this.MainText = new System.Windows.Forms.Label();
             this.OkButton = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
@@ -121,19 +121,11 @@ namespace MagmaMc.BetterForms
             // betterButtons1
             // 
             this.betterButtons1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.betterButtons1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.betterButtons1.BorderColor = System.Drawing.Color.Orange;
-            this.betterButtons1.BorderRadius = 10;
-            this.betterButtons1.BorderSize = 5;
-            this.betterButtons1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.betterButtons1.ForeColor = System.Drawing.Color.White;
             this.betterButtons1.Location = new System.Drawing.Point(0, 0);
             this.betterButtons1.Name = "betterButtons1";
             this.betterButtons1.Size = new System.Drawing.Size(150, 40);
             this.betterButtons1.TabIndex = 0;
-            this.betterButtons1.TextColor = System.Drawing.Color.White;
-            this.betterButtons1.UseVisualStyleBackColor = false;
-            this.betterButtons1.Value = null;
             this.betterButtons1.ForeColor = Colors["Text"];
             // 
             // MainText
@@ -201,7 +193,7 @@ namespace MagmaMc.BetterForms
 
         #endregion
 
-        private MagmaMc.BetterForms.BetterButton betterButtons1;
+        private MagmaMc.BetterForms.RoundedPictureBox betterButtons1;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Panel Titlebar;
         private System.Windows.Forms.Label Exit;

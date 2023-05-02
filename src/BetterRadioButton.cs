@@ -10,95 +10,27 @@ using System.Drawing.Drawing2D;
 
 namespace MagmaMc.BetterForms
 {
-    public class BetterRadioButton : RadioButton
+    using System.Drawing;
+    using System.Drawing.Drawing2D;
+    using System.Windows.Forms;
+
+    namespace MagmaMc.BetterForms
     {
-        public object Value { get; set; }
-        //Fields
-        private Color checkedColor = Color.MediumSlateBlue;
-        private Color unCheckedColor = Color.Gray;
-
-        //Properties
-        public Color CheckedColor
+        public class RoundedPictureBox: PictureBox
         {
-            get
+            protected override void OnPaint(PaintEventArgs e)
             {
-                return checkedColor;
-            }
+                GraphicsPath gp = new GraphicsPath();
+                gp.AddEllipse(0, 0, ClientSize.Width, ClientSize.Height);
+                this.Region = new Region(gp);
 
-            set
-            {
-                checkedColor = value;
-                Invalidate();
-            }
-        }
+                e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+                e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-        public Color UnCheckedColor
-        {
-            get
-            {
-                return unCheckedColor;
-            }
-
-            set
-            {
-                unCheckedColor = value;
-                Invalidate();
-            }
-        }
-
-        //Constructor
-        public BetterRadioButton()
-        {
-            MinimumSize = new Size(0, 21);
-            //Add a padding of 10 to the left to have a considerable distance between the text and the RadioButton.
-            Padding = new Padding(10, 0, 0, 0);
-        }
-
-        //Overridden methods
-        protected override void OnPaint(PaintEventArgs pevent)
-        {
-            //Fields
-            Graphics graphics = pevent.Graphics;
-            graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            float rbBorderSize = 18F;
-            float rbCheckSize = 12F;
-            RectangleF rectRbBorder = new RectangleF()
-            {
-                X = 0.5F,
-                Y = (Height - rbBorderSize) / 2, //Center
-                Width = rbBorderSize,
-                Height = rbBorderSize
-            };
-            RectangleF rectRbCheck = new RectangleF()
-            {
-                X = rectRbBorder.X + (rectRbBorder.Width - rbCheckSize) / 2, //Center
-                Y = (Height - rbCheckSize) / 2, //Center
-                Width = rbCheckSize,
-                Height = rbCheckSize
-            };
-
-            //Drawing
-            using (Pen penBorder = new Pen(checkedColor, 1.6F))
-            using (SolidBrush brushRbCheck = new SolidBrush(checkedColor))
-            using (SolidBrush brushText = new SolidBrush(ForeColor))
-            {
-                //Draw surface
-                graphics.Clear(BackColor);
-                //Draw Radio Button
-                if (Checked)
-                {
-                    graphics.DrawEllipse(penBorder, rectRbBorder);//Circle border
-                    graphics.FillEllipse(brushRbCheck, rectRbCheck); //Circle Radio Check
-                }
-                else
-                {
-                    penBorder.Color = unCheckedColor;
-                    graphics.DrawEllipse(penBorder, rectRbBorder); //Circle border
-                }
-                //Draw text
-                graphics.DrawString(Text, Font, brushText,
-                    rbBorderSize + 8, (Height - TextRenderer.MeasureText(Text, Font).Height) / 2);//Y=Center
+                base.OnPaint(e);
             }
         }
     }
+
 }

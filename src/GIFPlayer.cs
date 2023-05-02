@@ -15,7 +15,6 @@ namespace MagmaMc.BetterForms
         {
             InitializeComponent();
             backgroundWorker = new BackgroundWorker();
-            backgroundWorker.DoWork += Loading;
         }
 
         private void Loading(object sender, DoWorkEventArgs e)
